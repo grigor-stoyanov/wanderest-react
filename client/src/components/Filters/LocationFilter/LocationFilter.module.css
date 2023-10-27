@@ -1,0 +1,51 @@
+.location {
+    background-color:gray;
+    border-radius: 2rem;
+   
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    padding: 5px;
+    flex: 1 1 auto;
+}
+.focused{
+    background-color:var(--color-background);
+    filter:brightness(1.5);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.location input{
+    outline: none;
+    border: none;
+    background-color: inherit;
+    width: 100%;
+}
+.inputText{
+   
+    width: 90%;
+    flex-basis: 90%;
+}
+
+.locationWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    
+    width: 100%;
+    flex-basis: 100%;
+}
+
+.map {
+    position: relative !important;
+    overflow: hidden;
+    min-height: 300px;
+    width: 50vw;
+    filter:brightness(0.8)
+}
+
+
+.popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

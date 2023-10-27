@@ -1,0 +1,15 @@
+.error {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.code {
+    font-size: 5rem;
+    color:var(--color-accent);
+}
+
+.message{
+    color:var(--color-color);
+}

@@ -1,0 +1,57 @@
+
+
+.navigation ul{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.links{
+    display: flex;
+    gap:10px;
+}
+
+.links a{
+    color:var(--color-color);
+    text-decoration: none;  
+    background-color: var(--color-background);
+    padding:10px;
+    border-radius: 12px;
+    height: 50px;
+}
+.links a:hover{
+    border-radius:12px;
+    filter:brightness(0.9);
+}
+
+.logo {
+    width: 2rem;
+    border-radius: 100%;
+}
+
+.auth{
+    height:50px;
+    padding:13px;
+    border-radius: 40%;
+    border:1px solid gray;
+}
+
+.auth:hover{
+    box-shadow: 5px 5px 5px gray;
+}
+
+@media (min-width:500px) {
+    .logo{
+        width:3rem;
+    }
+}
+@media (min-width:800px) {
+    .logo{
+        width: 4rem;
+    }
+}
+@media (min-width:1080px) {
+    .logo{
+        width:5rem;
+    }
+} 

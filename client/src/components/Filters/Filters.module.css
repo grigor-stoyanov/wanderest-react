@@ -1,0 +1,45 @@
+.filters {
+    align-self: center;
+}
+
+.filterControls {
+    position: relative;
+    border-radius: 30px;
+    width: 90vw;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows:auto;
+    margin-bottom: 1rem;
+    row-gap: 10px;
+    place-items: center;
+}
+
+.filterInputs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area:1/span 4;
+    background-color:gray;
+    border-radius:30px;
+}
+
+.filterButtons{
+    display: flex;
+    justify-content: center;
+    gap:2px;
+    border-radius:32px;
+    max-height: 50px;
+    box-shadow: gray 2px 2px 2px 2px ;
+}
+.filterButtons button:first-child{
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+}
+.filterButtons button:last-child{
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+}
+.filterButtons button{
+    height: 50px;
+    border: none;
+}
