@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { deepNodeChecker } from "../helpers/deepNodeChecker";
 
+// TODO refactor how clicks are detected outside of element
 const useGlobalClick = (
   childrenRefs: React.RefObject<HTMLElement>[],
   parentRef: React.RefObject<HTMLElement>
@@ -13,16 +15,21 @@ const useGlobalClick = (
     // Function to handle clicks outside the component
     const handleClickOutside = (event: MouseEvent) => {
       setClickedOutside((prevState) => {
+        // If click detected outside parent container for element without self-hiding togglers
         if (childrenRefs.length === 0) {
           return (
             parentRef.current &&
-                !parentRef.current.contains(event.target as Node)
+            !deepNodeChecker(event.target as HTMLElement, parentRef.current)
           );
         }
+        // If click detected BELOW parent container for element with specific togglers
         return childrenRefs.reduce(
           (acc, v) => {
             // Check if any of the togglers are clicked
-            if (v.current && v.current.contains(event.target as Node)) {
+            if (
+              v.current &&
+              !(event.clientY > parentRef.current?.getBoundingClientRect().bottom!)
+            ) {
               return false;
             }
             return acc;
@@ -32,7 +39,8 @@ const useGlobalClick = (
           prevState
             ? true
             : parentRef.current &&
-                !parentRef.current.contains(event.target as Node)
+                (event.clientY >
+                  parentRef.current?.getBoundingClientRect().bottom!)
         );
       });
     };
@@ -44,7 +52,7 @@ const useGlobalClick = (
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [parentRef.current, childrenRefs]);
+  }, []);
 
   return { clickedOutside, resetClickedOutsideState };
 };

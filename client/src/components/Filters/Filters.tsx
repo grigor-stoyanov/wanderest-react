@@ -11,7 +11,7 @@ import useGlobalClick from "../../hooks/global-click-hook";
 import useGlobalScroll from "../../hooks/global-scroll-hook";
 import PopUp from "../ui/PopUp";
 
-const Filters: React.FC<{ headerRef: React.RefObject<HTMLElement> }> = (
+const Filters: React.FC<{ headerRef: React.RefObject<HTMLElement>}> = (
   props
 ) => {
   const buttonsRef = useRef<HTMLDivElement>(null);
@@ -44,7 +44,7 @@ const Filters: React.FC<{ headerRef: React.RefObject<HTMLElement> }> = (
             </button>
           </motion.div>
         )}
-        {!toHide && (
+        { !toHide  && ( 
           <PopUp classes={classes.popup} id="filterInputs">
             <motion.div
               className={classes.filterControls}

@@ -17,13 +17,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
+    "outDir": "dist",
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src","src/**/*.ts", "environment.d.ts"],
+  "include": ["src","src/**/*.ts", "environment.d.ts","src/types/react-calendar-types"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
