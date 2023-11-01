@@ -1,3 +1,4 @@
+import "react-calendar/dist/Calendar.css";
 import { useDispatch } from "react-redux";
 import {
   changeValue,
@@ -9,6 +10,7 @@ import DateRangeCalendar from "../DateRangeCalendar/DateRangeCalendar";
 
 const CheckOutFilter = () => {
   const checkoutFilter = useSelectFilter("checkout");
+  
   const dispatch = useDispatch();
   const classNames = [classes.checkout];
   return (
@@ -21,7 +23,8 @@ const CheckOutFilter = () => {
     >
       <label htmlFor="checkout">Check Out?</label>
       <input
-        defaultValue={checkoutFilter.value!}
+        value={checkoutFilter.value!}
+        readOnly={true}
         onChange={(e) => {
           dispatch(
             changeValue({
@@ -34,7 +37,6 @@ const CheckOutFilter = () => {
         onFocus={() => dispatch(focusInput({ filter: "checkout" }))}
         type="text"
       />
-      {checkoutFilter.isFocused && <DateRangeCalendar />}
     </div>
   );
 };

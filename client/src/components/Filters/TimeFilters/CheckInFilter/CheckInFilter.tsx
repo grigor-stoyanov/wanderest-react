@@ -6,8 +6,6 @@ import {
   useSelectFilter,
 } from "../../../../db/slices/filterSlice";
 import classes from "./CheckInFilter.module.css";
-import PopUp from "../../../ui/PopUp";
-import DateRangeCalendar from "../DateRangeCalendar/DateRangeCalendar";
 
 const CheckInFilter = () => {
   const checkinFilter = useSelectFilter("checkin");
@@ -23,7 +21,7 @@ const CheckInFilter = () => {
     >
       <label htmlFor="checkin">Check In ?</label>
       <input
-        defaultValue={checkinFilter.value!}
+        value={checkinFilter.value!}
         onChange={(e) => {
           dispatch(
             changeValue({
@@ -32,13 +30,11 @@ const CheckInFilter = () => {
             })
           );
         }}
+        readOnly={true}
         id="checkin"
         onFocus={() => dispatch(focusInput({ filter: "checkin" }))}
         type="text"
       />
-      {checkinFilter.isFocused && (
-          <DateRangeCalendar />
-      )}
     </div>
   );
 };

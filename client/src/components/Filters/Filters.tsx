@@ -3,15 +3,18 @@ import classes from "./Filters.module.css";
 import { useEffect, useRef } from "react";
 import LocationFilter from "./LocationFilter/LocationFilter";
 import GuestsFilter from "./GuestsFilter/GuestsFilter";
-import CheckInFilter from "./TimeFilters/CheckInFilter/CheckInFilter";
-import CheckOutFilter from "./TimeFilters/CheckOutFilter/CheckOutFilter";
 import { useDispatch } from "react-redux";
-import { clearFocus, focusInput } from "../../db/slices/filterSlice";
+import {
+  clearFocus,
+  focusInput,
+  resetState,
+} from "../../db/slices/filterSlice";
 import useGlobalClick from "../../hooks/global-click-hook";
 import useGlobalScroll from "../../hooks/global-scroll-hook";
 import PopUp from "../ui/PopUp";
+import TimeFilter from "./TimeFilters/TimeFilter/TimeFilter";
 
-const Filters: React.FC<{ headerRef: React.RefObject<HTMLElement>}> = (
+const Filters: React.FC<{ headerRef: React.RefObject<HTMLElement> }> = (
   props
 ) => {
   const buttonsRef = useRef<HTMLDivElement>(null);
@@ -29,8 +32,13 @@ const Filters: React.FC<{ headerRef: React.RefObject<HTMLElement>}> = (
       dispatch(clearFocus());
     } else if (isScrolled) {
       resetToHide();
+      dispatch(resetState())
     }
   }, [isScrolled]);
+
+  useEffect(()=>{
+    if(toHide) dispatch(resetState())
+  },[toHide])
 
   return (
     <div className={classes.filters} style={toHide ? { height: 0 } : {}}>
@@ -44,7 +52,7 @@ const Filters: React.FC<{ headerRef: React.RefObject<HTMLElement>}> = (
             </button>
           </motion.div>
         )}
-        { !toHide  && ( 
+        {!toHide && (
           <PopUp classes={classes.popup} id="filterInputs">
             <motion.div
               className={classes.filterControls}
@@ -55,9 +63,9 @@ const Filters: React.FC<{ headerRef: React.RefObject<HTMLElement>}> = (
             >
               <div className={classes.filterInputs}>
                 <LocationFilter />
-                <CheckInFilter />
-                <CheckOutFilter />
+                <TimeFilter />
                 <GuestsFilter />
+                <i className={["bi bi-search",classes.searchBtn].join(" ")} />
               </div>
             </motion.div>
           </PopUp>

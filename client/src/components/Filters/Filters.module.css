@@ -43,3 +43,11 @@
     height: 50px;
     border: none;
 }
+.searchBtn{
+    font-size: 2.4rem;
+    color:var(--color-primery);
+    background:var(--color-accent);
+    padding:0 10px;
+    cursor:pointer;
+    border-radius: 32px;
+}

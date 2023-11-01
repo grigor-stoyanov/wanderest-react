@@ -43,10 +43,13 @@ const filterSlice = createSlice({
       const { filter, value } = action.payload;
       state[filter as keyof filterState].value = value;
     },
+    resetState: (state) => {
+      return initialState;
+    },
   },
 });
 
-const { focusInput, clearFocus,changeValue } = filterSlice.actions;
+const { focusInput, clearFocus, changeValue, resetState } = filterSlice.actions;
 const useSelectFilter = (filterName: string) => {
   const filter = useSelector(
     (state: RootState) => state.filter[filterName as keyof filterState]
@@ -54,4 +57,4 @@ const useSelectFilter = (filterName: string) => {
   return filter;
 };
 export default filterSlice;
-export { focusInput, clearFocus,changeValue, useSelectFilter };
+export { focusInput, clearFocus, changeValue, resetState, useSelectFilter };
