@@ -1,0 +1,38 @@
+.auth {
+    height: 50px;
+    padding: 13px;
+    border-radius: 40%;
+    border: 1px solid gray;
+}
+
+.auth+ul {
+    position: absolute;
+    transform: translate(-70%);
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-background);
+    filter: brightness(1.2);
+    border-radius: 0.5em;
+    justify-content: start;
+    padding: 1rem;
+    z-index: 1;
+}
+
+.authMenu {
+    border-bottom: 1px solid gray;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+}
+
+.authMenu a {
+    text-decoration: none;
+    color: var(--color-color);
+    
+    padding: 0 15px;
+}
