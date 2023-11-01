@@ -17,12 +17,15 @@ const initialState = {
   },
   guests: {
     isFocused: false,
-    value: 0,
+    value: {
+      adults: 0,
+      children: 0,
+      pets: 0,
+    },
   },
 };
 
 type filterState = typeof initialState;
-
 const filterSlice = createSlice({
   name: "filter",
   initialState: initialState,
@@ -46,10 +49,25 @@ const filterSlice = createSlice({
     resetState: (state) => {
       return initialState;
     },
+    addGuest: (state, action) => {
+      const { type } = action.payload;
+      state.guests.value[type as keyof typeof state.guests.value] += 1;
+    },
+    removeGuest: (state, action) => {
+      const { type } = action.payload;
+      state.guests.value[type as keyof typeof state.guests.value] -= 1;
+    },
   },
 });
 
-const { focusInput, clearFocus, changeValue, resetState } = filterSlice.actions;
+const {
+  focusInput,
+  clearFocus,
+  changeValue,
+  resetState,
+  addGuest,
+  removeGuest,
+} = filterSlice.actions;
 const useSelectFilter = (filterName: string) => {
   const filter = useSelector(
     (state: RootState) => state.filter[filterName as keyof filterState]
@@ -57,4 +75,12 @@ const useSelectFilter = (filterName: string) => {
   return filter;
 };
 export default filterSlice;
-export { focusInput, clearFocus, changeValue, resetState, useSelectFilter };
+export {
+  focusInput,
+  clearFocus,
+  changeValue,
+  resetState,
+  addGuest,
+  removeGuest,
+  useSelectFilter,
+};

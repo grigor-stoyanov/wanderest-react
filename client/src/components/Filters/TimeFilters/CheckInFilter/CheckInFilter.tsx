@@ -34,6 +34,7 @@ const CheckInFilter = () => {
         id="checkin"
         onFocus={() => dispatch(focusInput({ filter: "checkin" }))}
         type="text"
+        placeholder="select check-in"
       />
     </div>
   );

@@ -28,7 +28,7 @@ const useGlobalClick = (
             // Check if any of the togglers are clicked
             if (
               v.current &&
-              !(event.clientY > parentRef.current?.getBoundingClientRect().bottom!)
+              (event.clientY < parentRef.current?.getBoundingClientRect().bottom! && childrenRefs.map(v=>v.current).some(v=>v?.contains(event.target as HTMLElement)))
             ) {
               return false;
             }

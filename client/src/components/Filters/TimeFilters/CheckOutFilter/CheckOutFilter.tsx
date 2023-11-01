@@ -36,6 +36,7 @@ const CheckOutFilter = () => {
         id="checkout"
         onFocus={() => dispatch(focusInput({ filter: "checkout" }))}
         type="text"
+        placeholder="select check-out"
       />
     </div>
   );

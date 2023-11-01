@@ -1,5 +1,5 @@
-.guests{
-    background-color: gray;
+.guests {
+  background-color: gray;
   border-radius: 2rem;
   display: flex;
   align-items: center;
@@ -8,16 +8,52 @@
   padding: 5px;
   flex: 1 1 40%;
 }
-.focused{
-  background-color:var(--color-background);
-  filter:brightness(1.5);
+
+.focused {
+  background-color: var(--color-background);
+  filter: brightness(1.5);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
-.guests input{
-    border:none;
-    outline:none;
-    background-color: inherit;
-    width: 85%;
-    display: block;
+
+.guests input {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  width: 85%;
+  display: block;
   border-radius: 32px;
-  }
+}
+
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guestsList {
+  background-color: var(--color-background);
+  filter: brightness(1.2);
+  padding: 10px;
+  border-radius: 32px;
+}
+
+.guestsItem {
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  gap: 10rem;
+  padding: 10px;
+}
+.guestsNumber{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:1rem;
+}
+.guestsNumber button{
+  border:none;
+  font-size:1.5rem
+}
+.guestsItem a {
+  color: var(--color-color);
+}
