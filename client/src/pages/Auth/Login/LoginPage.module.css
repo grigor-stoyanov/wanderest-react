@@ -1,0 +1,96 @@
+.login {
+    padding: 2rem;
+    max-width: 450px;
+    width: 100%;
+    background: linear-gradient(290deg,rgba(29, 33, 62,0.8) 10%,rgba(255,255,255,0.8));
+    text-align: center;
+}
+
+.login a{
+    color:#fff;
+    font-size: 0.8rem;
+}
+.loginOptions {
+    display: flex;  
+    flex-direction: column;
+}
+
+.loginSocials {
+    margin-top: auto;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 20px;
+    font-size: 1.5rem;
+    flex-direction: column;
+    color: var(--color-primery)
+}
+
+.socialOptions{
+    display: flex;
+    justify-content: center;
+    gap:50px;
+    padding:5px;
+}
+.socialOptions i {
+    cursor: pointer;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    gap: 20px;
+    padding: 2rem;
+    
+    width: 100%;
+    max-width: 300px;
+}
+
+.loginInput {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    
+    width: 100%;
+    max-width: 300px;
+}
+.loginInput input{
+    outline:none;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.loginForm .loginInput:last-of-type::after {
+    content: "";
+    display: block;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    border-bottom: 1px solid gray;
+    width: 100%;
+    max-width: 300px;
+}
+
+.loginForm button {
+    box-shadow: 1px 1px 1px #000;
+    border: none;
+    padding: 8px 32px;
+    background-color: var(--color-accent);
+    border-radius: 15px;
+}
+
+.loginForm button:hover {
+    filter: brightness(1.2)
+}
+
+@media (min-width: 500px) {
+    .loginOptions{
+        flex-direction: row;
+    }
+    .loginForm{
+        align-self:unset;
+        align-items: baseline;
+    }
+}

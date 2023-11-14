@@ -7,9 +7,10 @@
 
 .auth+ul {
     position: absolute;
-    transform: translate(-70%);
     height: 200px;
     width: 200px;
+    
+    transform:  none;
     display: flex;
     flex-direction: column;
     background-color: var(--color-background);
@@ -17,7 +18,9 @@
     border-radius: 0.5em;
     justify-content: start;
     padding: 1rem;
-    z-index: 1;
+    z-index:2 ; 
+    top:55px;
+    right:15px;
 }
 
 .authMenu {
@@ -35,4 +38,13 @@
     color: var(--color-color);
     
     padding: 0 15px;
+}
+
+@media (max-width:500px) {
+    .auth+ul{
+        transform:scale(0.8);
+        top:40px;
+        right:0;
+    }
+    
 }

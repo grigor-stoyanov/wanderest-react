@@ -1,0 +1,24 @@
+.header {
+    padding: 1rem;
+    background-color: var(--color-background);
+    filter: brightness(1.1);
+}
+
+.header:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    padding-top: 5px;
+    border-bottom: 1px solid rgba(169, 169, 169, 0.5);
+}
+
+.authForm {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(112.1deg, rgba(32, 38, 57, 0.4) 11.4%, rgba(63, 76, 119, 0.7) 70.2%), url('../../assets/hero.jpeg');
+    background-size: cover;
+    background-position: center;
+}

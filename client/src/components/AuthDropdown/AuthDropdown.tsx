@@ -5,9 +5,9 @@ import useGlobalClick from "../../hooks/global-click-hook";
 import { Link } from "react-router-dom";
 
 const AUTH_MENU = [
- { name:'Profile',link:'/profile',iconClass:'bi bi-person-circle'},
-  {name:'Login',link:'/login',iconClass:'bi bi-key-fill'},
-  {name:'Register',link:'/register',iconClass:'bi bi-person-lock'}
+ { name:'Profile',link:'/auth/profile',iconClass:'bi bi-person-circle'},
+  {name:'Login',link:'/auth',iconClass:'bi bi-key-fill'},
+  {name:'Register',link:'/auth/register',iconClass:'bi bi-person-lock'}
 ]
 
 const AuthDropdown = () => {
@@ -35,7 +35,7 @@ const AuthDropdown = () => {
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
         role="list"
       >
-            {Object.values(AUTH_MENU).map((a, index) => (
+            {Object.values(AUTH_MENU).map((a) => (
             <motion.li
               variants={{
                 hidden: { opacity: 0, scale: 0.5 },
@@ -45,7 +45,7 @@ const AuthDropdown = () => {
                 },
               }}
               transition={{ type: "spring" }}
-              key={a.toString()}
+              key={JSON.stringify(a)}
               className={classes.authMenu}
             >
               <motion.p whileHover={{ scale: 1.2, color: "#DC2E2B" }}>

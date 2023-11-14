@@ -1,0 +1,100 @@
+.register {
+    padding: 2rem;
+    max-width: 600px;
+    width: 100%;
+    background: linear-gradient(290deg, rgba(29, 33, 62, 0.8) 10%, rgba(255, 255, 255, 0.8));
+    text-align: center;
+}
+
+.register a {
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+.registerOptions {
+    display: flex;
+    flex-direction: column;
+}
+
+.registerSocials {
+    margin-top: auto;
+    flex-wrap: wrap;
+    flex-direction: column;
+    display: flex;
+    gap: 20px;
+    font-size: 1.5rem;
+    color: var(--color-primery)
+}
+
+.socialOptions {
+
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 5px;
+}
+
+.socialOptions i {
+    cursor: pointer;
+}
+
+.registerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    gap: 20px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+.registerInput {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    width: 100%;
+    max-width: 300px;
+}
+
+.registerInput input {
+    outline: none;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.registerForm .registerInput:last-of-type::after {
+    content: "";
+    display: block;
+    margin-bottom: 2rem;
+    width: 100%;
+    padding-top: 1rem;
+    border-bottom: 1px solid gray;
+    width: 100%;
+    max-width: 300px;
+}
+
+.registerForm button {
+    box-shadow: 1px 1px 1px #000;
+    border: none;
+    padding: 8px 32px;
+    background-color: var(--color-accent);
+    border-radius: 15px;
+}
+
+.registerForm button:hover {
+    filter: brightness(1.2)
+}
+
+
+@media (min-width: 500px) {
+    .registerOptions {
+        flex-direction: row;
+    }
+
+    .registerForm {
+        align-self: unset;
+        align-items: baseline;
+    }
+}
