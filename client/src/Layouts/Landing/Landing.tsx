@@ -1,48 +1,50 @@
 // assets
 import classes from "./Landing.module.css";
 import airbaloon from "../../assets/airbaloon.png";
-import logo from "../../assets/logo.png";
 
 // libs
-import {
-  useScroll,
-  motion,
-  useSpring,
-  useTransform,
-  MotionValue,
-} from "framer-motion";
-import React, { useEffect, useState } from "react";
+import * as framerMotion from "framer-motion";
 
 // local
-import LanguageSelector from "../../components/LanguageSelector/LanguageSelector";
 import Footer from "../../components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import MainHeaderNavigation from "../../components/MainHeaderNavigation/MainHeaderNavigation";
 
 const Landing = () => {
   const navigate = useNavigate();
-  const { scrollY } = useScroll();
-  const spring = useSpring(scrollY, { stiffness: 10 });
-  const balloonX = useTransform(spring,[0,2000],[0,1080])
-  const balloonY = useTransform(spring, [0, 300, 400, 500], [0, 50, -50, 0]);
-  const heroY = useTransform(scrollY, [0, 300, 400, 500], [0, 200, -200, -400]);
-  const scaleText = useTransform(scrollY, [0, 300, 400, 500], [1, 1.3, 1.4, 1]);
-  const textY = useTransform(
+  const { scrollY } = framerMotion.useScroll();
+  const spring = framerMotion.useSpring(scrollY, { stiffness: 10 });
+  const balloonX = framerMotion.useTransform(spring, [0, 2000], [0, 1080]);
+  const balloonY = framerMotion.useTransform(
+    spring,
+    [0, 300, 400, 500],
+    [0, 50, -50, 0]
+  );
+  const heroY = framerMotion.useTransform(
+    scrollY,
+    [0, 300, 400, 500],
+    [0, 200, -200, -400]
+  );
+  const scaleText = framerMotion.useTransform(
+    scrollY,
+    [0, 300, 400, 500],
+    [1, 1.3, 1.4, 1]
+  );
+  const textY = framerMotion.useTransform(
     scrollY,
     [0, 300, 400, 500],
     [0, -200, -300, -400]
   );
-  const buttonY = useTransform(
+  const buttonY = framerMotion.useTransform(
     scrollY,
-    [0, 300, 400, 500], 
+    [0, 300, 400, 500],
     [0, -100, 200, 425]
   );
-  const infoY = useTransform(scrollY, [0, 300, 400, 500], [0, 300, 0, -50]);
-
-    
-  useEffect(()=>{
-    console.log(balloonX)
-  },[balloonX])
+  const infoY = framerMotion.useTransform(
+    scrollY,
+    [0, 300, 400, 500],
+    [0, 300, 0, -50]
+  );
 
   return (
     <div className={classes.landing}>
@@ -50,10 +52,12 @@ const Landing = () => {
         <MainHeaderNavigation />
       </header>
       <main className={classes.main}>
-        <motion.section style={{ y: heroY }} className={classes.hero}>
+        <framerMotion.motion.section
+          style={{ y: heroY }}
+          className={classes.hero}
+        >
           <div className={classes.banner}>
-            
-             <motion.img
+            <framerMotion.motion.img
               style={{
                 x: balloonX,
                 y: balloonY,
@@ -61,23 +65,26 @@ const Landing = () => {
               className={classes.balloon}
               src={airbaloon}
             />
-            <motion.h1 style={{ scale: scaleText, y: textY }}>
+            <framerMotion.motion.h1 style={{ scale: scaleText, y: textY }}>
               Travel and Rest comfortably with us.
-            </motion.h1>
-            <motion.p style={{ scale: scaleText, y: textY }}>
+            </framerMotion.motion.h1>
+            <framerMotion.motion.p style={{ scale: scaleText, y: textY }}>
               Get the best value out of your stay.
-            </motion.p>
-            <motion.button
+            </framerMotion.motion.p>
+            <framerMotion.motion.button
               onClick={() => navigate("/home")}
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring" }}
               style={{ y: buttonY }}
             >
               Get Started
-            </motion.button>
+            </framerMotion.motion.button>
           </div>
-        </motion.section>
-        <motion.section style={{ y: infoY }} className={classes.info}>
+        </framerMotion.motion.section>
+        <framerMotion.motion.section
+          style={{ y: infoY }}
+          className={classes.info}
+        >
           <article>
             <h2>Time to explore</h2>
             <p>
@@ -127,7 +134,7 @@ const Landing = () => {
             <span>Rating: 9/10</span>
             <h4>-Ipsum Gibbus</h4>
           </article>
-        </motion.section>
+        </framerMotion.motion.section>
       </main>
 
       <footer className={classes.footer}>

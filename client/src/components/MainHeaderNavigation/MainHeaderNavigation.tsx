@@ -6,10 +6,19 @@ import { Link } from "react-router-dom";
 import AuthDropdown from "../AuthDropdown/AuthDropdown";
 import useWindowDimension from "../../hooks/window-dimension-hook";
 
-const MAX_WINDOW_WIDTH = 630;
+export const MAX_WINDOW_WIDTH = 630;
 
 const MainHeaderNavigation = (props: PropsWithChildren) => {
   const { windowDimension } = useWindowDimension();
+
+  function isReponsive(hasChildren: boolean) {
+    if (hasChildren) {
+      return windowDimension.width > MAX_WINDOW_WIDTH;
+    } else {
+      return true;
+    }
+  }
+
   return (
     <nav className={classes.navigation}>
       <ul role="list">
@@ -19,13 +28,16 @@ const MainHeaderNavigation = (props: PropsWithChildren) => {
           </Link>
         </li>
         <li className={classes.middleControls}>{props.children}</li>
-        {windowDimension.width > MAX_WINDOW_WIDTH && (
+
+        {isReponsive(Children.count(props.children) !== 0) && (
           <li className={classes.links}>
             <Link to="/listings/new">List your home</Link>
-            <LanguageSelector />
             <AuthDropdown />
           </li>
         )}
+        <li>
+          <LanguageSelector />
+        </li>
       </ul>
     </nav>
   );

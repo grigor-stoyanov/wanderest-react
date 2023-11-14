@@ -7,10 +7,15 @@ const useGlobalScroll = () => {
     const position = window.scrollY;
     if (Math.abs(position - prevScrollPosition.current) > 30) {
       setScrolled(true);
+      prevScrollPosition.current = position;
+      return;
     }
     if (position === 0) {
       setScrolled(null);
+      prevScrollPosition.current = position;
+      return;
     }
+    resetScrolledState()
     prevScrollPosition.current = position;
   };
   const resetScrolledState = () => {

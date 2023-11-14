@@ -1,13 +1,20 @@
-import MainHeaderNavigation from "../../components/MainHeaderNavigation/MainHeaderNavigation";
+import MainHeaderNavigation, {
+  MAX_WINDOW_WIDTH,
+} from "../../components/MainHeaderNavigation/MainHeaderNavigation";
 import classes from "./Home.module.css";
 import Footer from "../../components/Footer/Footer";
+
 import PlacesList from "../../components/PlacesList/PlacesList";
 import Filters from "../../components/Filters/Filters";
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import { FooterNav } from "../../components/Footer/FooterNav/FooterNav";
+import useWindowDimension from "../../hooks/window-dimension-hook";
 
 const Home = () => {
   const headerRef = useRef(null);
+  const { windowDimension } = useWindowDimension();
+
   return (
     <>
       <motion.header
@@ -22,7 +29,9 @@ const Home = () => {
         <div id="filterInputs"></div>
         <div id="filterPopups"></div>
       </motion.header>
+      
       <main>
+    {windowDimension.width < MAX_WINDOW_WIDTH && <FooterNav />}
         <section className={classes.heading}>
           <h1>Browse trough our places</h1>
           <div className={classes.sort}>

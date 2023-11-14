@@ -9,11 +9,11 @@ const initialState = {
   },
   checkin: {
     isFocused: false,
-    value: null,
+    value: "",
   },
   checkout: {
     isFocused: false,
-    value: null,
+    value: "",
   },
   guests: {
     isFocused: false,

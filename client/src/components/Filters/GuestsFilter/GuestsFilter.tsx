@@ -2,9 +2,7 @@ import { useDispatch } from "react-redux";
 import classes from "./Guets.module.css";
 import {
   addGuest,
-  changeValue,
   focusInput,
-  guestFilter,
   removeGuest,
   useSelectFilter,
 } from "../../../db/slices/filterSlice";
@@ -54,7 +52,7 @@ const GuestsFilter = () => {
         <PopUp classes={classes.popup} id="filterPopups">
           <ul role="list" className={classes.guestsList}>
             {GUEST_TYPES.map((type) => (
-              <li className={classes.guestsItem}>
+              <li key={JSON.stringify(type)} className={classes.guestsItem}>
                 <div className={classes.guestType}>
                   <h5>{type.type}:</h5>
                   <span>
